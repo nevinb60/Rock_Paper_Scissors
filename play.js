@@ -24,15 +24,15 @@ function getWinner(player_choice, computer_choice) {
         case ('rock'):
             if (computer_choice == 'paper') return computer_choice;
             if (computer_choice == 'scissors') return player_choice;
-            if (computer_choice == 'rock') return "It's a draw!"
+            if (computer_choice == 'rock') return null;
         case ('paper'):
-            if (computer_choice == 'rock') return 'You win!';
-            if (computer_choice == 'scissors') return 'Computer wins!'
-            if (computer_choice == 'paper') return "It's a draw!"
+            if (computer_choice == 'rock') return player_choice;
+            if (computer_choice == 'scissors') return computer_choice;
+            if (computer_choice == 'paper') return null;
         case ('scissors'):
-            if (computer_choice == 'rock') return 'Computer wins!'
-            if (computer_choice == 'paper') return 'You win!'
-            if (computer_choice == 'scissors') return "It's a draw!"
+            if (computer_choice == 'rock') return computer_choice;
+            if (computer_choice == 'paper') return player_choice;
+            if (computer_choice == 'scissors') return null;
     }
 }
 
@@ -42,12 +42,16 @@ function playGame() {
     winner = getWinner(human, computer);
     if (winner == human) {
         human_score += 1;
-        console.log(`Human won this round!`)
+        console.log(`👨🏾‍🦲 won this round!`)
     }
     else if (winner == computer) {
         computer_score += 1;
-        console.log(`C0mpUter won this round!`)
+        console.log(`🤖 won this round!`)
     }
+    else {
+        console.log('DRAW!')
+    }
+
 
     console.log(`Human choice: ${human}`);
     console.log(`Computer choice: ${computer}`);
@@ -58,10 +62,17 @@ function playGame() {
 
 
 
+
+
 function rounds(n = 3) {
+
     for (let i = 1; i <= n; i++) {
         console.log(`Round ${i}`);
         playGame();
+        if (human_score == computer_score && i == 3) {
+            console.log('Round 4!')
+            playGame();
+        }
     }
 }
 
