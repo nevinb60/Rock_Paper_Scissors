@@ -1,3 +1,6 @@
+let human_score = 0;
+let computer_score = 0;
+
 function getComputerChoice() {
     choices = ['rock', 'paper', 'scissors']
     computer_choice = choices[Math.floor(Math.random() * choices.length)];
@@ -19,8 +22,8 @@ function getHumanChoice() {
 function getWinner(player_choice, computer_choice) {
     switch (player_choice) {
         case ('rock'):
-            if (computer_choice == 'paper') return 'Computer wins!';
-            if (computer_choice == 'scissors') return 'You win!';
+            if (computer_choice == 'paper') return computer_choice;
+            if (computer_choice == 'scissors') return player_choice;
             if (computer_choice == 'rock') return "It's a draw!"
         case ('paper'):
             if (computer_choice == 'rock') return 'You win!';
@@ -37,10 +40,29 @@ function playGame() {
     let human = getHumanChoice();
     let computer = getComputerChoice();
     winner = getWinner(human, computer);
+    if (winner == human) {
+        human_score += 1;
+        console.log(`Human won this round!`)
+    }
+    else if (winner == computer) {
+        computer_score += 1;
+        console.log(`C0mpUter won this round!`)
+    }
+
     console.log(`Human choice: ${human}`);
     console.log(`Computer choice: ${computer}`);
 
+    console.log(`Humans ${human_score} || C0mpUters: ${computer_score}`)
+
 }
 
-playGame();
 
+
+function rounds(n = 3) {
+    for (let i = 1; i <= n; i++) {
+        console.log(`Round ${i}`);
+        playGame();
+    }
+}
+
+rounds();
