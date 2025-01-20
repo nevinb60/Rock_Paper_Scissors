@@ -1,5 +1,8 @@
 let human_score = 0;
 let computer_score = 0;
+const ROCK = document.querySelector('.rock')
+const PAPER = document.querySelector('.paper')
+const SCISSORS = document.querySelector('.scissors')
 
 function getComputerChoice() {
     choices = ['rock', 'paper', 'scissors']
@@ -8,16 +11,15 @@ function getComputerChoice() {
 
 }
 
-function getHumanChoice() {
-    player_choice = prompt("Rock, Paper or Scissors:\n").toLocaleLowerCase();
-    if (player_choice != 'rock' && player_choice != 'paper' && player_choice != 'scissors') {
-        console.log('invalid input');
-        getHumanChoice();
-    }
-    return player_choice
-
-
-}
+ROCK.addEventListener('click', () => {
+    playGame('rock');
+})
+PAPER.addEventListener('click', () => {
+    playGame('paper');
+})
+SCISSORS.addEventListener('click', () => {
+    playGame('scissors');
+})
 
 function getWinner(player_choice, computer_choice) {
     switch (player_choice) {
@@ -37,7 +39,7 @@ function getWinner(player_choice, computer_choice) {
 }
 
 function playGame() {
-    let human = getHumanChoice();
+
     let computer = getComputerChoice();
     winner = getWinner(human, computer);
     if (winner == human) {
