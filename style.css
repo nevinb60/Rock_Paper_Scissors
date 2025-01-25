@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+}
+
+
+#winner {
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+
+
+
+}
+
+
+.selection {
+    display: flex;
+    border-radius: 10px;
+    justify-content: center;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.output {
+    display: flex;
+}
+
+
+button {
+    padding: 16px;
+    margin: 20px;
+    font-size: 3em;
+    border-radius: 20px;
+
+
+}
+
+#playerChoice {
+    font-weight: 300;
+    font-size: xx-large;
+}
+
+#computerChoice {
+    font-weight: 300;
+    font-size: xx-large;
+}
