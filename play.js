@@ -37,15 +37,18 @@ function endGame() {
     gameActivation = false;
     if (human_score > computer_score) {
         winnerDisplay.textContent = `GAME OVER. HUMANITY WINS 🎉`
+        winnerDisplay.setAttribute('style', 'color:green');
 
         console.log(`HUMAN WINS 🎉`)
     }
     else if (human_score < computer_score) {
         winnerDisplay.textContent = `GAME OVER. COMPUTERS WIN 👾`
+        winnerDisplay.setAttribute('style', 'color:red')
         console.log(`C0MPuT3R$ WIN 👾`)
     }
     else {
         winnerDisplay.textContent = 'NO SUCH THING AS A TIE! Refresh and play again!'
+
     }
     console.log('Game OVER. Refresh to continue')
 }
@@ -82,17 +85,20 @@ function playGame(player_choice) {
     if (winner == human) {
         human_score += 1;
         console.log(`👨🏾‍🦲 won this round!`)
-        winnerDisplay.textContent = '+1 PLAYER! 🎉'
+        winnerDisplay.textContent = '+1 PLAYER! 🎉';
+        winnerDisplay.setAttribute("style", "color:green");
     }
     else if (winner == computer) {
         computer_score += 1;
         console.log(`🤖 won this round!`)
-        winnerDisplay.textContent = '+1 COMPUTER 🤖'
+        winnerDisplay.textContent = '+1 COMPUTER 🤖';
+        winnerDisplay.setAttribute("style", "color:red");
 
     }
     else {
         console.log('DRAW!')
         winnerDisplay.textContent = "It's a TIE!"
+        winnerDisplay.setAttribute("style", "color:black");
 
 
     }
